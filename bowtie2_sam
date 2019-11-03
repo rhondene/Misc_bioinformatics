@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Author: RWint
+#convenient script to align to with bowtie to sort sam files to bam then and index files
+
+yourfilenames=$(ls *.fq.gz)
+for file in $yourfilenames; do
+	bowtie2 --threads 4 --quiet -x /home/alchemis/Desktop/trnaseq_data/alignments/mature_trnas_cca_v2 -U $file -S $file.sam; 
+	samtools view -S -b $file.sam > ./$file.bam; samtools sort -o ./$file.sorted.bam ./$file.bam; samtools index ./$file.sorted.bam; 		samtools flagstat $file.sorted.bam; samtools idxstats $file.sorted.bam > $file.sam.counts
+done
+
+
