@@ -1,4 +1,5 @@
-##An example when a newline separates nucleotides of the same sequence
+##An example when a newline separates nucleotides of the same sequence,
+#for example Flybase sometimes writes newline within the same sequence when downloading bulk sequences from gene ID
 fasta = []
 file=[]
 with open('host_transc_introns.fasta', 'r') as f:
