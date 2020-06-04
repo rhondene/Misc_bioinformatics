@@ -2,7 +2,7 @@
 ## Purpose: To extract and make custom reference fasta file of pre-tRNA genes using gtf and fasta annotation files.
 ## Alternatively, You can use gffutils package but it takes too long to build its database and throws errors on dmel release 6.27 so I had to bypass that
 ## You can replace 'tRNA' feature with any other feature of your choice once it is annotated in the gtf file
-## gtf and fasta must be same release
+## gtf and fasta must be same genome assembly release!!
 
 import pickle
 import pandas as pd
@@ -83,7 +83,7 @@ with open('pre-tRNAs_r6.27.fasta', 'w') as f:
         f.write(seq[0]+'\n')
 
 
-## Extrac tRNA genes and make custom mature sequences by adding CCA at 3' end 		
+## Extract tRNA genes and make custom mature sequences by adding CCA at 3' end 		
 		
 chrom = tRNA['Chr'].unique()
 chrom_groups = tRNA.groupby('Chr')
