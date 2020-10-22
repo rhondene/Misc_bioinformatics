@@ -14,7 +14,7 @@ def make_csv(fasta,out_name):
     with open(fasta, 'r') as f:
         for line in f:
             if line.startswith('>'):
-                headers.append(line.rstrip())
+                headers.append(line.rstrip().split(';')[0].split(' ')[0] )
             else:
                 seqs.append(line.rstrip())
         assert len(headers)==len(seqs),' Number of IDs and sequences do not match'
