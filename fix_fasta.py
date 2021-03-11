@@ -1,6 +1,5 @@
 #!/usr/bin/python
-# Python erroneously reads in flybase multi-fasta files with newline within sequence. Not good!
-# Useful for correcting fasta file with newline separating nucleotides of the same sequence
+# Useful for correcting fasta file with newlines separating nucleotides of the same sequence
 
 import sys
 import argparse
@@ -44,7 +43,7 @@ def fix_fasta(filename, new_filename):
 #--------------------------
 if __name__ =='__main__':
     
-    parser = argparse.ArgumentParser(description="Corrects within-sequence newlines in fasta (.fasta, .fa, .fas) file. Written by Rhondene Wint (rwint@ucmerced.edu). Example of using this script: \n\n 'python fix_fasta.py myfile.fasta myfile_fixed.fasta' ", epilog='Enjoy!')
+    parser = argparse.ArgumentParser(description="Corrects within-sequence newlines in fasta (.fasta, .fa, .fas) file. Example of using this script: \n\n 'python fix_fasta.py myfile.fasta myfile_fixed.fasta' ", epilog='Enjoy!')
     parser.add_argument('filename', help=' input path for the fasta file to be corrected. If fast file is in current directory then only the filename is needed', type=str)
     parser.add_argument('new_filename', help='output path for the corrected version of the fasta file', type=str)
     
